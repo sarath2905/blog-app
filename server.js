@@ -1,11 +1,9 @@
 const express=require("express");
-const app = express();
+const authRoutes=require('./routes/authRoutes');
 
-app.get('/',(req,res)=>{
-    res.json({
-        message:"HELLO WORLD"
-    })
-});
+app.use(express.json());
+app.use("/api",authRoutes);
+
 
 app.listen(3000,()=>{
     console.log("server is running on port 3000")
